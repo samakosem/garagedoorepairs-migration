@@ -23,8 +23,18 @@ const emergencyEligibleSlugs = [
 const comparisonTableSlugs = ["garage-door-repair-los-angeles"];
 
 export default function ServicePageTemplate({ service }: { service: ServicePageDef }) {
-  const { slug, title, description, quickAnswer, intro, signs, covered, faqs, expandedContent } =
-    service;
+  const {
+    slug,
+    title,
+    description,
+    quickAnswer,
+    intro,
+    signs,
+    covered,
+    faqs,
+    expandedContent,
+    costGuideLinkText,
+  } = service;
   const url = `${siteConfig.url}/${slug}/`;
   const showEmergency = emergencyEligibleSlugs.includes(slug);
   const showComparisonTable = comparisonTableSlugs.includes(slug);
@@ -52,6 +62,17 @@ export default function ServicePageTemplate({ service }: { service: ServicePageD
       <section className="mx-auto max-w-4xl px-4 py-14">
         <h2 className="text-2xl font-bold text-zinc-900">Overview</h2>
         <p className="mt-4 text-zinc-600">{intro}</p>
+        {costGuideLinkText && (
+          <p className="mt-4 text-zinc-600">
+            {costGuideLinkText}{" "}
+            <Link
+              href="/garage-door-repair-cost-los-angeles/"
+              className="font-medium text-brand-blue underline"
+            >
+              View pricing guide
+            </Link>
+          </p>
+        )}
       </section>
 
       <section className="bg-zinc-50 py-14">
@@ -119,6 +140,17 @@ export default function ServicePageTemplate({ service }: { service: ServicePageD
               Garage Door Repair Cost in Los Angeles
             </h2>
             <p className="mt-4 text-zinc-600">{expandedContent.costSection}</p>
+            {expandedContent.costGuideLinkText && (
+              <p className="mt-4 text-zinc-600">
+                {expandedContent.costGuideLinkText}{" "}
+                <Link
+                  href="/garage-door-repair-cost-los-angeles/"
+                  className="font-medium text-brand-blue underline"
+                >
+                  View pricing guide
+                </Link>
+              </p>
+            )}
           </section>
 
           <section className="bg-zinc-50 py-14">

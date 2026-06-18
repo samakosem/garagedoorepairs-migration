@@ -8,8 +8,17 @@ import { breadcrumbSchema, articleSchema } from "@/lib/schema";
 import { siteConfig, servicePages, type BlogPostDef } from "@/lib/site-config";
 
 export default function BlogPostTemplate({ post }: { post: BlogPostDef }) {
-  const { slug, title, description, quickAnswer, intro, sections, faqs, relatedServiceSlug } =
-    post;
+  const {
+    slug,
+    title,
+    description,
+    quickAnswer,
+    intro,
+    sections,
+    faqs,
+    relatedServiceSlug,
+    costGuideLinkText,
+  } = post;
   const url = `${siteConfig.url}/${slug}/`;
   const relatedService = servicePages.find((service) => service.slug === relatedServiceSlug);
 
@@ -52,6 +61,18 @@ export default function BlogPostTemplate({ post }: { post: BlogPostDef }) {
             <p className="mt-3 text-zinc-600">{section.body}</p>
           </div>
         ))}
+
+        {costGuideLinkText && (
+          <p className="mt-8 text-zinc-600">
+            {costGuideLinkText}{" "}
+            <Link
+              href="/garage-door-repair-cost-los-angeles/"
+              className="font-medium text-brand-blue underline"
+            >
+              View pricing guide
+            </Link>
+          </p>
+        )}
 
         {relatedService && (
           <p className="mt-10 border-t border-zinc-200 pt-6 text-sm text-zinc-600">

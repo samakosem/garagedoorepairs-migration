@@ -208,6 +208,16 @@ export default function FaqPage() {
 
       <div className="bg-zinc-50">
         <FAQSection title="Garage Door Repair Cost Questions" faqs={costFaqs} />
+        <p className="mx-auto max-w-3xl px-4 pb-12 text-center text-zinc-600">
+          For a full breakdown of typical price ranges by repair type, see our{" "}
+          <Link
+            href="/garage-door-repair-cost-los-angeles/"
+            className="font-medium text-brand-blue underline"
+          >
+            Los Angeles garage door repair cost guide
+          </Link>
+          .
+        </p>
       </div>
 
       <FAQSection title="Spring and Opener Questions" faqs={springOpenerFaqs} />

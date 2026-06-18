@@ -35,6 +35,7 @@ export type ExpandedServiceContent = {
   whyLocal: string;
   commonProblems: { title: string; body: string }[];
   costSection: string;
+  costGuideLinkText?: string;
   emergencySection: string;
   repairVsReplace: string;
   areasServed: string;
@@ -51,6 +52,9 @@ export type ServicePageDef = {
   covered: string[];
   faqs: FaqItem[];
   expandedContent?: ExpandedServiceContent;
+  // Optional sentence linking to the LA cost guide. Rendered only when
+  // present, scoped to this one service entry - does not affect other pages.
+  costGuideLinkText?: string;
 };
 
 export const servicePages: ServicePageDef[] = [
@@ -115,6 +119,8 @@ export const servicePages: ServicePageDef[] = [
           "We stand behind our workmanship. Ask your technician about specific coverage for the parts and labor involved in your repair.",
       },
     ],
+    costGuideLinkText:
+      "Curious what a repair like this typically costs? See our Los Angeles garage door repair pricing guide for general ranges and what affects the final price.",
   },
   {
     slug: "garage-door-repair-los-angeles",
@@ -215,6 +221,8 @@ export const servicePages: ServicePageDef[] = [
       ],
       costSection:
         "Garage door repair cost in Los Angeles depends on the specific problem, the parts involved, and your door's size and type. Spring replacement, opener repair, and off-track issues all have different cost factors, and the severity of the damage plays a role as well. We provide a final estimate after inspecting the door in person, since an accurate quote isn't possible without seeing the issue directly. Emergency or after-hours service may cost more than a scheduled daytime appointment.",
+      costGuideLinkText:
+        "For a closer look at typical price ranges by repair type, see our Los Angeles garage door repair cost guide.",
       emergencySection:
         "Garage door problems don't always happen during business hours. A door that won't close is a security concern, and a snapped spring or cable can make a door unsafe to operate at all. We offer 24-hour service availability for these kinds of urgent situations, though exact response times can vary depending on your location and our schedule at the time you call. Same-day service may also be available for non-emergency repairs, depending on availability.",
       repairVsReplace:
@@ -284,6 +292,8 @@ export const servicePages: ServicePageDef[] = [
           "Ask your technician about coverage for the specific spring and labor used in your replacement.",
       },
     ],
+    costGuideLinkText:
+      "Wondering what spring replacement runs in Los Angeles? Our garage door repair cost guide breaks down typical ranges by repair type.",
   },
   {
     slug: "garage-door-off-track-repair",
@@ -346,6 +356,8 @@ export const servicePages: ServicePageDef[] = [
           "Treat it as urgent. An off-track door can be unsafe to operate and may worsen if used before repair.",
       },
     ],
+    costGuideLinkText:
+      "Pricing for off-track repair depends a lot on severity. Our Los Angeles cost guide explains what affects the final price.",
   },
   {
     slug: "garage-door-replacement",
@@ -408,6 +420,8 @@ export const servicePages: ServicePageDef[] = [
           "Yes, removal and disposal of the old door is part of a standard replacement service.",
       },
     ],
+    costGuideLinkText:
+      "Replacement costs vary widely by door size and material. See our Los Angeles pricing guide for typical ranges and what drives the final cost.",
   },
   {
     slug: "emergency-garage-door-repair",
@@ -470,6 +484,8 @@ export const servicePages: ServicePageDef[] = [
           "Any door that's stuck open, has a snapped spring or cable, or came off its track should be treated as urgent. Call us and describe the situation.",
       },
     ],
+    costGuideLinkText:
+      "Emergency calls can cost more than a scheduled visit. Our Los Angeles cost guide explains how after-hours pricing typically works.",
   },
   {
     slug: "garage-door-opener",
@@ -532,6 +548,8 @@ export const servicePages: ServicePageDef[] = [
           "The two sensors at the base of the track need a clear, aligned line of sight to each other. Misalignment can cause the door to refuse to close or reverse unexpectedly.",
       },
     ],
+    costGuideLinkText:
+      "Opener repair cost depends on the brand and the specific issue. Check our Los Angeles cost guide for general pricing factors.",
   },
   {
     slug: "preventive-maintenance",
@@ -1161,6 +1179,9 @@ export type BlogPostDef = {
   sections: { heading: string; body: string }[];
   faqs: FaqItem[];
   relatedServiceSlug: string;
+  // Optional sentence linking to the LA cost guide. Rendered only when
+  // present, scoped to this one post - does not affect other posts.
+  costGuideLinkText?: string;
 };
 
 // Slugs match real, live WordPress blog post URLs confirmed via post-sitemap.xml.
@@ -1333,6 +1354,8 @@ export const blogPosts: BlogPostDef[] = [
           "Call our team to discuss your repair and get pricing information before scheduling a visit.",
       },
     ],
+    costGuideLinkText:
+      "For a more detailed breakdown by repair type, see our complete Los Angeles garage door repair cost guide.",
     relatedServiceSlug: "garage-door-repair",
   },
   {
@@ -1375,6 +1398,8 @@ export const blogPosts: BlogPostDef[] = [
           "Spring type, door size, and the condition of related hardware like cables and pulleys all factor into final pricing.",
       },
     ],
+    costGuideLinkText:
+      "See our Los Angeles garage door repair cost guide for a broader look at pricing across all repair types.",
     relatedServiceSlug: "garage-door-spring-replacement",
   },
 ];
