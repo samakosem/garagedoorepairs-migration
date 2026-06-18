@@ -38,6 +38,7 @@ export default function Home() {
         subtitle="Fast, reliable garage door repair, installation, and emergency service across Los Angeles. Local technicians ready to help."
         emergency
         stats
+        leadForm
       />
       <QuickAnswerBlock>
         Need garage door repair in Los Angeles? {siteConfig.name} provides 24-hour service

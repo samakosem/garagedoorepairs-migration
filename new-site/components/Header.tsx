@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, servicePages } from "@/lib/site-config";
 import MobileMenu from "@/components/MobileMenu";
+import ServicesDropdown from "@/components/ServicesDropdown";
 
 export default function Header() {
   return (
@@ -16,10 +17,14 @@ export default function Header() {
         <Link href="/" className="text-lg font-bold text-brand-navy">
           {siteConfig.name}
         </Link>
-        <nav className="hidden gap-6 text-sm font-medium text-zinc-700 sm:flex">
-          <Link href="/garage-door-repair-los-angeles/" className="hover:text-brand-blue">
-            Services
+        <nav className="hidden items-center gap-6 text-sm font-medium text-zinc-700 sm:flex">
+          <Link href="/" className="hover:text-brand-blue">
+            Home
           </Link>
+          <Link href="/garage-door-repair-los-angeles/" className="hover:text-brand-blue">
+            Garage Door Repair
+          </Link>
+          <ServicesDropdown services={servicePages} />
           <Link href="/los-angeles-ca/" className="hover:text-brand-blue">
             Locations
           </Link>

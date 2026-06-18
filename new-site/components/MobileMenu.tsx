@@ -2,10 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { siteConfig } from "@/lib/site-config";
+import { ChevronDown } from "lucide-react";
+import { siteConfig, servicePages } from "@/lib/site-config";
 
 const navLinks = [
-  { href: "/garage-door-repair-los-angeles/", label: "Services" },
+  { href: "/", label: "Home" },
+  { href: "/garage-door-repair-los-angeles/", label: "Garage Door Repair" },
+];
+
+const trailingLinks = [
   { href: "/los-angeles-ca/", label: "Locations" },
   { href: "/about-us/", label: "About" },
   { href: "/blog/", label: "Blog" },
@@ -14,6 +19,12 @@ const navLinks = [
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  function closeAll() {
+    setOpen(false);
+    setServicesOpen(false);
+  }
 
   return (
     <div className="sm:hidden">
@@ -28,11 +39,43 @@ export default function MobileMenu() {
         {open ? "✕" : "☰"}
       </button>
       {open && (
-        <nav className="absolute inset-x-0 top-full z-50 border-b border-zinc-200 bg-white px-4 py-4 shadow-sm">
+        <nav className="absolute inset-x-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-zinc-200 bg-white px-4 py-4 shadow-sm">
           <ul className="space-y-3 text-sm font-medium text-zinc-700">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} onClick={() => setOpen(false)}>
+                <Link href={link.href} onClick={closeAll}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <button
+                type="button"
+                aria-expanded={servicesOpen}
+                onClick={() => setServicesOpen((value) => !value)}
+                className="flex w-full items-center justify-between"
+              >
+                Services
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                  aria-hidden="true"
+                />
+              </button>
+              {servicesOpen && (
+                <ul className="mt-2 space-y-2 border-l-2 border-brand-orange/30 pl-3 text-zinc-600">
+                  {servicePages.map((service) => (
+                    <li key={service.slug}>
+                      <Link href={`/${service.slug}/`} onClick={closeAll}>
+                        {service.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+            {trailingLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} onClick={closeAll}>
                   {link.label}
                 </Link>
               </li>

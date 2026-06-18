@@ -12,9 +12,14 @@ export default function ProcessSection() {
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((item) => (
-            <div key={item.step} className="rounded-xl border border-zinc-200 bg-white p-6">
-              <span className="text-sm font-bold text-red-600">{item.step}</span>
-              <p className="mt-2 font-semibold text-zinc-900">{item.title}</p>
+            <div
+              key={item.step}
+              className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-orange/10 text-sm font-bold text-brand-orange">
+                {item.step}
+              </span>
+              <p className="mt-3 font-semibold text-brand-navy">{item.title}</p>
               <p className="mt-2 text-sm text-zinc-600">{item.description}</p>
             </div>
           ))}

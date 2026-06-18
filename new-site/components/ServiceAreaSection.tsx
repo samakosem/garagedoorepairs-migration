@@ -15,7 +15,7 @@ export default function ServiceAreaSection() {
         <div className="mt-10 grid gap-3 sm:grid-cols-3 md:grid-cols-4">
           <Link
             href="/los-angeles-ca/"
-            className="rounded-md border border-zinc-200 bg-white px-4 py-3 text-center text-sm font-semibold text-zinc-900 hover:border-red-300"
+            className="rounded-md border border-zinc-200 bg-white px-4 py-3 text-center text-sm font-semibold text-brand-navy shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-orange/40 hover:shadow-md"
           >
             Los Angeles, CA
           </Link>
@@ -23,7 +23,7 @@ export default function ServiceAreaSection() {
             <Link
               key={location.slug}
               href={`/${location.slug}/`}
-              className="rounded-md border border-zinc-200 bg-white px-4 py-3 text-center text-sm font-medium text-zinc-700 hover:border-red-300"
+              className="rounded-md border border-zinc-200 bg-white px-4 py-3 text-center text-sm font-medium text-zinc-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-orange/40 hover:shadow-md"
             >
               {location.name}
             </Link>

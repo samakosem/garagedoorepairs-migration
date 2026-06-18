@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import QuickAnswerBlock from "@/components/QuickAnswerBlock";
 import FAQSection from "@/components/FAQSection";
+import MidPageCta from "@/components/MidPageCta";
 import RelatedLinksBlock from "@/components/RelatedLinksBlock";
 import CtaSection from "@/components/CtaSection";
 import JsonLd from "@/components/JsonLd";
@@ -115,6 +116,7 @@ export default function NewCityPageTemplate({ city }: { city: NewCityPageDef }) 
       </section>
 
       <TrustBar />
+      <MidPageCta />
       <FAQSection title={`${name} Garage Door FAQ`} faqs={faqs} />
 
       <RelatedLinksBlock

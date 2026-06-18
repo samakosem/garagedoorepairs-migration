@@ -4,6 +4,7 @@ import TrustBar from "@/components/TrustBar";
 import QuickAnswerBlock from "@/components/QuickAnswerBlock";
 import ProcessSection from "@/components/ProcessSection";
 import ServiceComparisonTable from "@/components/ServiceComparisonTable";
+import MidPageCta from "@/components/MidPageCta";
 import FAQSection from "@/components/FAQSection";
 import CtaSection from "@/components/CtaSection";
 import InternalLinks from "@/components/InternalLinks";
@@ -104,6 +105,7 @@ export default function ServicePageTemplate({ service }: { service: ServicePageD
 
       <TrustBar />
       <ProcessSection />
+      <MidPageCta />
       <FAQSection faqs={faqs} />
       <InternalLinks exclude={slug} />
       <CtaSection />
