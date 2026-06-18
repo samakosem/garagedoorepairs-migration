@@ -61,8 +61,8 @@ const rows: Row[] = [
 ];
 
 const urgencyColor: Record<Row["urgency"], string> = {
-  Emergency: "bg-red-100 text-red-700",
-  "Same-Week": "bg-amber-100 text-amber-700",
+  Emergency: "bg-orange-100 text-orange-700",
+  "Same-Week": "bg-blue-100 text-brand-blue",
   Routine: "bg-zinc-100 text-zinc-700",
 };
 
@@ -75,9 +75,9 @@ export default function ServiceComparisonTable() {
           A quick guide to common garage door problems and the service that addresses them.
         </p>
       </div>
-      <div className="mt-8 overflow-x-auto rounded-xl border border-zinc-200">
+      <div className="mt-8 overflow-x-auto rounded-xl border border-zinc-200 shadow-sm">
         <table className="w-full min-w-[640px] text-left text-sm">
-          <thead className="bg-zinc-50 text-zinc-700">
+          <thead className="bg-brand-navy text-white">
             <tr>
               <th className="px-4 py-3 font-semibold">Problem</th>
               <th className="px-4 py-3 font-semibold">Likely Cause</th>
@@ -86,12 +86,12 @@ export default function ServiceComparisonTable() {
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-200 bg-white">
-            {rows.map((row) => (
-              <tr key={row.problem}>
+            {rows.map((row, index) => (
+              <tr key={row.problem} className={index % 2 === 1 ? "bg-brand-surface" : undefined}>
                 <td className="px-4 py-3 text-zinc-800">{row.problem}</td>
                 <td className="px-4 py-3 text-zinc-600">{row.cause}</td>
                 <td className="px-4 py-3">
-                  <Link href={row.servicePath} className="font-medium text-red-600 underline">
+                  <Link href={row.servicePath} className="font-medium text-brand-blue underline">
                     {row.service}
                   </Link>
                 </td>

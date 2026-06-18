@@ -1,3 +1,4 @@
+import { Phone, FileText, ShieldAlert } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import StatHighlights from "@/components/StatHighlights";
 
@@ -15,7 +16,7 @@ export default function Hero({
   stats?: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden bg-zinc-900">
+    <section className="relative overflow-hidden bg-brand-navy">
       <div
         className="absolute inset-0 opacity-[0.07]"
         style={{
@@ -24,10 +25,10 @@ export default function Hero({
           backgroundSize: "24px 24px",
         }}
       />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(220,38,38,0.25),_transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(249,115,22,0.22),_transparent_60%)]" />
       <div className="relative mx-auto max-w-6xl px-4 py-20 text-center sm:py-28">
         {eyebrow && (
-          <p className="text-sm font-semibold uppercase tracking-wide text-red-400">
+          <p className="text-sm font-semibold uppercase tracking-wide text-brand-orange-light">
             {eyebrow}
           </p>
         )}
@@ -38,19 +39,22 @@ export default function Hero({
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href={`tel:${siteConfig.phone}`}
-            className="inline-flex items-center justify-center rounded-md bg-red-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-red-500"
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-orange px-8 py-4 text-base font-semibold text-white shadow-lg shadow-orange-900/30 transition-colors hover:bg-brand-orange-light"
           >
+            <Phone className="h-5 w-5" aria-hidden="true" />
             Call {siteConfig.phoneDisplay}
           </a>
           <a
             href="/contact-us/"
-            className="inline-flex items-center justify-center rounded-md border border-zinc-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:border-zinc-400"
+            className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:border-zinc-400"
           >
+            <FileText className="h-5 w-5" aria-hidden="true" />
             Get a Free Estimate
           </a>
         </div>
         {emergency && (
-          <p className="mt-6 text-sm font-medium text-red-300">
+          <p className="mt-6 flex items-center justify-center gap-2 text-sm font-medium text-brand-orange-light">
+            <ShieldAlert className="h-4 w-4" aria-hidden="true" />
             Garage door stuck, unsafe, or not closing? Call now for 24-hour service availability.
           </p>
         )}

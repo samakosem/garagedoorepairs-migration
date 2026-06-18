@@ -40,7 +40,7 @@ export default function MobileMenu() {
             <li>
               <a
                 href={`tel:${siteConfig.phone}`}
-                className="inline-block rounded-md bg-red-600 px-4 py-2 font-semibold text-white"
+                className="inline-block rounded-md bg-brand-orange px-4 py-2 font-semibold text-white transition-colors hover:bg-brand-orange-light"
               >
                 Call {siteConfig.phoneDisplay}
               </a>
