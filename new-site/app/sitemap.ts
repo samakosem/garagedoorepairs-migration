@@ -9,7 +9,7 @@ import {
 } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticSlugs = ["", "about-us", "contact-us", "blog", "los-angeles-ca"];
+  const staticSlugs = ["", "about-us", "contact-us", "blog", "los-angeles-ca", "faq"];
 
   const allSlugs = [
     ...staticSlugs,
