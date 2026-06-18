@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
@@ -22,7 +23,8 @@ const emergencyEligibleSlugs = [
 const comparisonTableSlugs = ["garage-door-repair-los-angeles"];
 
 export default function ServicePageTemplate({ service }: { service: ServicePageDef }) {
-  const { slug, title, description, quickAnswer, intro, signs, covered, faqs } = service;
+  const { slug, title, description, quickAnswer, intro, signs, covered, faqs, expandedContent } =
+    service;
   const url = `${siteConfig.url}/${slug}/`;
   const showEmergency = emergencyEligibleSlugs.includes(slug);
   const showComparisonTable = comparisonTableSlugs.includes(slug);
@@ -83,6 +85,91 @@ export default function ServicePageTemplate({ service }: { service: ServicePageD
           ))}
         </ul>
       </section>
+
+      {expandedContent && (
+        <>
+          <section className="mx-auto max-w-4xl px-4 py-14">
+            <h2 className="text-2xl font-bold text-zinc-900">
+              Why Choose a Local Los Angeles Garage Door Company
+            </h2>
+            <p className="mt-4 text-zinc-600">{expandedContent.whyLocal}</p>
+          </section>
+
+          <section className="bg-zinc-50 py-14">
+            <div className="mx-auto max-w-4xl px-4">
+              <h2 className="text-2xl font-bold text-zinc-900">
+                Common Garage Door Problems We Repair in Los Angeles
+              </h2>
+              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                {expandedContent.commonProblems.map((problem) => (
+                  <div
+                    key={problem.title}
+                    className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+                  >
+                    <h3 className="font-semibold text-brand-navy">{problem.title}</h3>
+                    <p className="mt-2 text-sm text-zinc-600">{problem.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-4xl px-4 py-14">
+            <h2 className="text-2xl font-bold text-zinc-900">
+              Garage Door Repair Cost in Los Angeles
+            </h2>
+            <p className="mt-4 text-zinc-600">{expandedContent.costSection}</p>
+          </section>
+
+          <section className="bg-zinc-50 py-14">
+            <div className="mx-auto max-w-4xl px-4">
+              <h2 className="text-2xl font-bold text-zinc-900">
+                Same-Day and Emergency Garage Door Repair
+              </h2>
+              <p className="mt-4 text-zinc-600">{expandedContent.emergencySection}</p>
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-4xl px-4 py-14">
+            <h2 className="text-2xl font-bold text-zinc-900">
+              Repair vs. Replacement — How to Decide
+            </h2>
+            <p className="mt-4 text-zinc-600">{expandedContent.repairVsReplace}</p>
+          </section>
+
+          <section className="bg-zinc-50 py-14">
+            <div className="mx-auto max-w-4xl px-4">
+              <h2 className="text-2xl font-bold text-zinc-900">
+                Areas We Serve Around Los Angeles
+              </h2>
+              <p className="mt-4 text-zinc-600">{expandedContent.areasServed}</p>
+              <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium text-brand-blue">
+                <Link href="/los-angeles-ca/" className="underline hover:text-brand-orange">
+                  Los Angeles, CA
+                </Link>
+                <Link href="/garage-door-spring-replacement/" className="underline hover:text-brand-orange">
+                  Spring Replacement
+                </Link>
+                <Link href="/garage-door-opener/" className="underline hover:text-brand-orange">
+                  Opener Repair
+                </Link>
+                <Link href="/garage-door-off-track-repair/" className="underline hover:text-brand-orange">
+                  Off-Track Repair
+                </Link>
+                <Link href="/emergency-garage-door-repair/" className="underline hover:text-brand-orange">
+                  Emergency Repair
+                </Link>
+                <Link href="/garage-door-replacement/" className="underline hover:text-brand-orange">
+                  Full Replacement
+                </Link>
+                <Link href="/contact-us/" className="underline hover:text-brand-orange">
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
 
       {showEmergency && (
         <section className="bg-zinc-50 py-14">

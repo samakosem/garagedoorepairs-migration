@@ -31,6 +31,15 @@ export type FaqItem = {
   answer: string;
 };
 
+export type ExpandedServiceContent = {
+  whyLocal: string;
+  commonProblems: { title: string; body: string }[];
+  costSection: string;
+  emergencySection: string;
+  repairVsReplace: string;
+  areasServed: string;
+};
+
 export type ServicePageDef = {
   slug: string;
   title: string;
@@ -41,6 +50,7 @@ export type ServicePageDef = {
   signs: string[];
   covered: string[];
   faqs: FaqItem[];
+  expandedContent?: ExpandedServiceContent;
 };
 
 export const servicePages: ServicePageDef[] = [
@@ -166,7 +176,52 @@ export const servicePages: ServicePageDef[] = [
         answer:
           "Our primary focus is residential garage doors. Call to discuss your specific situation if you have a commercial property.",
       },
+      {
+        question: "How much does garage door repair cost in Los Angeles?",
+        answer:
+          "Cost depends on the problem, the parts needed, and your door's size and type. We provide a final estimate after inspecting the door in person. Emergency or after-hours service may cost more than a scheduled appointment.",
+      },
+      {
+        question: "Is garage door spring replacement dangerous?",
+        answer:
+          "Yes, springs are under high tension and can cause serious injury if handled without the right tools and training. We recommend professional replacement rather than attempting it yourself.",
+      },
+      {
+        question: "Should I repair or replace my garage door?",
+        answer:
+          "If the issue is limited to one part and the door is otherwise in good condition, repair is often the better value. Frequent repairs or significant damage may make replacement more practical. A technician can advise after inspection.",
+      },
     ],
+    expandedContent: {
+      whyLocal:
+        "Choosing a local Los Angeles garage door company means working with technicians who are familiar with the city's mix of housing styles, from older single-family homes to newer multi-unit properties. Local technicians also know the area well enough to plan routes efficiently, which can help with scheduling. Working locally also means it's easier to follow up if you have questions after a repair, since the same company that did the work is based nearby.",
+      commonProblems: [
+        {
+          title: "Broken or Worn Springs",
+          body: "Garage door springs carry the full weight and tension of the door, and they wear out over time from repeated use. A broken spring often shows up as a loud bang followed by a door that won't open, or a door that suddenly feels very heavy to lift. Spring replacement is one of the most common repairs we perform across Los Angeles.",
+        },
+        {
+          title: "Off-Track Doors",
+          body: "Doors can come off track from worn rollers, a bent track, or an obstruction during operation. An off-track door can look crooked or get stuck partway through its cycle, and it's usually not safe to keep operating until it's been inspected.",
+        },
+        {
+          title: "Opener and Remote Failures",
+          body: "When a remote or wall switch stops responding, the cause could be anything from a dead battery to a failing opener motor. We diagnose the full system to confirm whether the fix is a simple reprogram or a more involved repair.",
+        },
+        {
+          title: "Noisy or Slow-Moving Doors",
+          body: "Grinding, scraping, or rattling noises usually point to worn rollers, loose hardware, or a track that needs realignment. Left unaddressed, this kind of wear can lead to a bigger failure later on.",
+        },
+      ],
+      costSection:
+        "Garage door repair cost in Los Angeles depends on the specific problem, the parts involved, and your door's size and type. Spring replacement, opener repair, and off-track issues all have different cost factors, and the severity of the damage plays a role as well. We provide a final estimate after inspecting the door in person, since an accurate quote isn't possible without seeing the issue directly. Emergency or after-hours service may cost more than a scheduled daytime appointment.",
+      emergencySection:
+        "Garage door problems don't always happen during business hours. A door that won't close is a security concern, and a snapped spring or cable can make a door unsafe to operate at all. We offer 24-hour service availability for these kinds of urgent situations, though exact response times can vary depending on your location and our schedule at the time you call. Same-day service may also be available for non-emergency repairs, depending on availability.",
+      repairVsReplace:
+        "Deciding between repair and replacement usually comes down to the extent of the damage and the age of the door. If the problem is isolated to one part, like a spring or a section of track, and the rest of the door is in good shape, repair is typically the more cost-effective choice. If the door is older, has damage in multiple areas, or needs frequent repairs, full replacement may save money over time. A technician can give you a clearer recommendation after looking at the door in person.",
+      areasServed:
+        "Our Los Angeles garage door repair service covers the city and a number of surrounding communities. Coverage and response times can vary by location, so it's best to call with your address to confirm availability before scheduling.",
+    },
   },
   {
     slug: "garage-door-spring-replacement",
