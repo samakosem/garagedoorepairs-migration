@@ -12,9 +12,9 @@ import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import { siteConfig, newCityPages } from "@/lib/site-config";
 
-const title = "Garage Door Repair in Los Angeles, CA | Garage Door Repairs";
+const title = "Garage Door Services in Los Angeles, CA | Garage Door Repairs";
 const description =
-  "Important Los Angeles local page. Garage door repair, installation, and emergency service throughout Los Angeles, CA.";
+  "Garage door services and coverage throughout Los Angeles, CA. See our service area, available repair and replacement options, and the neighborhoods we serve.";
 const slug = "los-angeles-ca";
 
 export const metadata: Metadata = {
@@ -55,7 +55,7 @@ export default function LosAngelesCaPage() {
     <div>
       <JsonLd
         data={serviceSchema({
-          name: "Garage Door Repair",
+          name: "Garage Door Services in Los Angeles",
           description,
           url,
         })}
@@ -69,24 +69,32 @@ export default function LosAngelesCaPage() {
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Los Angeles, CA", href: `/${slug}/` }]} />
 
       <Hero
-        eyebrow="Primary Service Area"
-        title="Garage Door Repair Los Angeles, CA"
-        subtitle="Garage door repair, installation, and emergency service throughout Los Angeles, CA, from a local team that knows the area."
+        eyebrow="Service Area"
+        title="Garage Door Services in Los Angeles, CA"
+        subtitle="Service area coverage, available repair and replacement options, and the neighborhoods we serve throughout Los Angeles, CA."
         emergency
       />
 
       <QuickAnswerBlock>
-        Need garage door repair in Los Angeles? {siteConfig.name} provides 24-hour service
-        availability for stuck doors, broken springs, opener issues, off-track doors, and garage
-        door replacement throughout Los Angeles, CA. Call {siteConfig.phoneDisplay} for help.
+        {siteConfig.name} provides garage door services throughout Los Angeles, CA, including
+        24-hour availability for stuck doors, broken springs, opener issues, off-track doors, and
+        garage door replacement. For a detailed look at our repair process, see our{" "}
+        <Link href="/garage-door-repair-los-angeles/" className="font-medium text-brand-blue underline">
+          garage door repair in Los Angeles
+        </Link>{" "}
+        page, or call {siteConfig.phoneDisplay} for help.
       </QuickAnswerBlock>
 
       <section className="mx-auto max-w-4xl px-4 py-14">
         <h2 className="text-2xl font-bold text-zinc-900">Serving Los Angeles, CA</h2>
         <p className="mt-4 text-zinc-600">
-          As our primary service area, Los Angeles is where most of our day-to-day repair and
-          installation work happens. From broken springs to full door replacement, our team
-          handles the work with attention to detail and clear communication.
+          Los Angeles is our primary service area, covering a wide range of neighborhoods and
+          property types. This page covers our overall coverage area and the services available
+          to homeowners here. For specific problems, repair steps, and pricing detail, visit our{" "}
+          <Link href="/garage-door-repair-los-angeles/" className="font-medium text-brand-blue underline">
+            garage door repair in Los Angeles
+          </Link>{" "}
+          page.
         </p>
       </section>
 
@@ -112,6 +120,30 @@ export default function LosAngelesCaPage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-4 py-10">
+        <h2 className="text-xl font-bold text-brand-navy">More Ways to Get Help</h2>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link
+            href="/garage-door-repair-los-angeles/"
+            className="rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-brand-orange/40 hover:text-brand-orange hover:shadow-md"
+          >
+            Garage Door Repair in Los Angeles
+          </Link>
+          <Link
+            href="/garage-door-repair-cost-los-angeles/"
+            className="rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-brand-orange/40 hover:text-brand-orange hover:shadow-md"
+          >
+            Los Angeles Pricing Guide
+          </Link>
+          <Link
+            href="/contact-us/"
+            className="rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-brand-orange/40 hover:text-brand-orange hover:shadow-md"
+          >
+            Contact Us
+          </Link>
         </div>
       </section>
 
