@@ -14,13 +14,13 @@ export default function RelatedLinksBlock({
   return (
     <section className="border-t border-zinc-200 bg-white py-10">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-lg font-bold text-zinc-900">{title}</h2>
+        <h2 className="text-lg font-bold text-brand-navy">{title}</h2>
         <div className="mt-4 flex flex-wrap gap-3">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 hover:border-red-300 hover:text-red-600"
+              className="rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-brand-orange/40 hover:text-brand-orange hover:shadow-md"
             >
               {link.label}
             </Link>
