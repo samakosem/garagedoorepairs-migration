@@ -16,7 +16,7 @@ export default function ContactForm() {
     const data = Object.fromEntries(new FormData(form));
 
     try {
-      const response = await fetch("/api/lead", {
+      const response = await fetch("/api/lead/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, pageUrl: window.location.href }),
