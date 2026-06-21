@@ -40,8 +40,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <JsonLd data={localBusinessSchema()} />
         <Header />
-        <main className="flex-1 pb-16 sm:pb-0">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
+        <div className="h-16 sm:hidden" aria-hidden="true" />
         <StickyCallButton />
       </body>
     </html>

@@ -20,7 +20,7 @@ export default function HeroLeadForm() {
       const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, pageUrl: window.location.href }),
       });
 
       if (response.ok) {
@@ -108,6 +108,19 @@ export default function HeroLeadForm() {
           type="tel"
           required
           placeholder="Phone"
+          className="w-full rounded-md border border-zinc-300 px-3 py-2.5 text-sm focus:border-brand-blue focus:outline-none"
+        />
+      </div>
+      <div>
+        <label htmlFor="hero-email" className="sr-only">
+          Email
+        </label>
+        <input
+          id="hero-email"
+          name="email"
+          type="email"
+          required
+          placeholder="Email"
           className="w-full rounded-md border border-zinc-300 px-3 py-2.5 text-sm focus:border-brand-blue focus:outline-none"
         />
       </div>

@@ -1,20 +1,44 @@
 "use client";
 
 import { useState } from "react";
-import { servicePages } from "@/lib/site-config";
+import { servicePages, siteConfig } from "@/lib/site-config";
+
+type Status = "idle" | "submitting" | "success" | "unavailable" | "error";
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data = Object.fromEntries(new FormData(event.currentTarget));
-    // TODO: wire up to email/CRM/lead API once selected. Logging only for now.
-    console.log("Lead form submission:", data);
-    setSubmitted(true);
+    setStatus("submitting");
+
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, pageUrl: window.location.href }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        return;
+      }
+
+      if (response.status === 503) {
+        setStatus("unavailable");
+        return;
+      }
+
+      setStatus("error");
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div
         role="status"
@@ -25,6 +49,28 @@ export default function ContactForm() {
         <p className="mt-2 text-sm text-green-800">
           We&apos;ll be in touch shortly. For urgent issues, please call us directly.
         </p>
+      </div>
+    );
+  }
+
+  if (status === "unavailable" || status === "error") {
+    return (
+      <div
+        role="alert"
+        className="rounded-xl border border-zinc-200 bg-white p-8 text-center"
+      >
+        <p className="font-semibold text-brand-navy">
+          Online requests are being connected.
+        </p>
+        <p className="mt-2 text-sm text-zinc-600">
+          Please call {siteConfig.phoneDisplay} for immediate help.
+        </p>
+        <a
+          href={`tel:${siteConfig.phone}`}
+          className="mt-4 inline-flex items-center justify-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-orange-light"
+        >
+          Call {siteConfig.phoneDisplay}
+        </a>
       </div>
     );
   }
@@ -119,9 +165,10 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full rounded-md bg-red-600 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-red-500"
+        disabled={status === "submitting"}
+        className="w-full rounded-md bg-red-600 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-red-500 disabled:opacity-70"
       >
-        Request Service
+        {status === "submitting" ? "Sending..." : "Request Service"}
       </button>
     </form>
   );
