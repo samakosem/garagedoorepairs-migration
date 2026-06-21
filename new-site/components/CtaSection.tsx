@@ -4,7 +4,16 @@ import { siteConfig } from "@/lib/site-config";
 export default function CtaSection() {
   return (
     <section className="relative overflow-hidden bg-brand-navy py-16 text-center text-white">
+      <div
+        className="absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+        }}
+      />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(249,115,22,0.18),_transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(3,105,161,0.2),_transparent_55%)]" />
       <div className="relative mx-auto max-w-2xl px-4">
         <h2 className="text-3xl font-bold">Need Garage Door Help Now?</h2>
         <p className="mt-3 text-zinc-300">

@@ -10,13 +10,17 @@ export default function ProcessSection() {
             A straightforward process from your first call to a finished repair.
           </p>
         </div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            aria-hidden="true"
+            className="absolute left-0 right-0 top-9 hidden h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent lg:block"
+          />
           {processSteps.map((item) => (
             <div
               key={item.step}
-              className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="relative rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-orange/10 text-sm font-bold text-brand-orange">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-light text-sm font-bold text-white shadow-md shadow-orange-900/20 ring-4 ring-white">
                 {item.step}
               </span>
               <p className="mt-3 font-semibold text-brand-navy">{item.title}</p>

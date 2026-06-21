@@ -30,15 +30,18 @@ export default function ServiceCards() {
             <Link
               key={service.slug}
               href={`/${service.slug}/`}
-              className="group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-orange/40 hover:shadow-md"
+              className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-brand-orange/40 hover:shadow-xl"
             >
-              <Icon className="h-6 w-6 text-brand-blue group-hover:text-brand-orange" aria-hidden="true" />
-              <p className="mt-3 font-semibold text-zinc-900 group-hover:text-brand-orange">
+              <span className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-brand-orange/10 to-brand-blue/10 transition-transform duration-300 group-hover:scale-125" />
+              <span className="relative inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-brand-navy to-slate-700 text-brand-orange-light shadow-md transition-transform group-hover:scale-105">
+                <Icon className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <p className="relative mt-4 font-semibold text-zinc-900 group-hover:text-brand-orange">
                 {service.title}
               </p>
-              <p className="mt-2 text-sm text-zinc-600">{service.description}</p>
-              <span className="mt-4 inline-block text-sm font-medium text-brand-blue">
-                Learn more &rarr;
+              <p className="relative mt-2 text-sm text-zinc-600">{service.description}</p>
+              <span className="relative mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand-blue">
+                Learn more <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </span>
             </Link>
           );

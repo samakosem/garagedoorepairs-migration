@@ -1,7 +1,8 @@
-import { Phone, FileText, ShieldAlert } from "lucide-react";
+import { Phone, FileText, ShieldAlert, Zap, MapPin } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import StatHighlights from "@/components/StatHighlights";
 import HeroLeadForm from "@/components/HeroLeadForm";
+import GarageDoorIllustration from "@/components/GarageDoorIllustration";
 
 export default function Hero({
   eyebrow,
@@ -78,10 +79,30 @@ export default function Hero({
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(249,115,22,0.22),_transparent_60%)]" />
       {leadForm ? (
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-28">
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-28">
           {textContent}
-          <div className="w-full">
-            <HeroLeadForm />
+          <div className="flex w-full flex-col items-center gap-6">
+            <div className="relative w-full max-w-sm">
+              <div className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-brand-orange/25 via-transparent to-brand-blue/20 blur-xl" />
+              <div className="relative rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl shadow-black/40 backdrop-blur-sm">
+                <GarageDoorIllustration />
+              </div>
+              <div className="absolute -left-4 top-4 flex items-center gap-2 rounded-lg border border-white/10 bg-brand-navy/90 px-3 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-sm sm:-left-8">
+                <ShieldAlert className="h-3.5 w-3.5 text-brand-orange-light" aria-hidden="true" />
+                Emergency Help
+              </div>
+              <div className="absolute -right-3 top-1/3 flex items-center gap-2 rounded-lg border border-white/10 bg-brand-navy/90 px-3 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-sm sm:-right-8">
+                <Zap className="h-3.5 w-3.5 text-brand-orange-light" aria-hidden="true" />
+                Springs • Openers • Off-Track
+              </div>
+              <div className="absolute -bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-lg border border-white/10 bg-brand-navy/90 px-3 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-sm whitespace-nowrap">
+                <MapPin className="h-3.5 w-3.5 text-brand-orange-light" aria-hidden="true" />
+                Los Angeles Service Area
+              </div>
+            </div>
+            <div className="w-full">
+              <HeroLeadForm />
+            </div>
           </div>
         </div>
       ) : (
